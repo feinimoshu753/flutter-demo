@@ -44,6 +44,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String _title = "flutter-test";
 
   void _incrementCounter() {
     setState(() {
@@ -89,6 +90,18 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            new FlatButton(
+                child: new Text('清零按钮'),
+                color: new Color.fromRGBO(66, 165, 245, 1.0),
+                onPressed: () {
+                  setState(() {
+                    _counter = 0;
+                  });
+                },
+            ),
+            new Text(
+               _title
+            ),
             new Text(
               'You have pushed the button this many times:',
             ),
