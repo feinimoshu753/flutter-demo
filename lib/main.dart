@@ -99,6 +99,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   });
                 },
             ),
+            new Image.network(
+               'http://imgs.nmplus.hk/wp-content/uploads/2016/04/5Pikachu.png'
+            ),
             new Text(
                _title
             ),
