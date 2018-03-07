@@ -91,26 +91,34 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new FlatButton(
-                child: new Text('清零按钮'),
-                color: new Color.fromRGBO(66, 165, 245, 1.0),
-                onPressed: () {
-                  setState(() {
-                    _counter = 0;
-                  });
-                },
+              child: new Text('清零按钮'),
+              color: new Color.fromRGBO(66, 165, 245, 1.0),
+              onPressed: () {
+                setState(() {
+                  _counter = 0;
+                });
+              },
+            ),
+            new Container(
+                child: new Center(
+                    child: new Text('Engage')
+                )
             ),
             new Image.network(
-               'http://imgs.nmplus.hk/wp-content/uploads/2016/04/5Pikachu.png'
+                'http://imgs.nmplus.hk/wp-content/uploads/2016/04/5Pikachu.png'
             ),
             new Text(
-               _title
+                _title
             ),
             new Text(
               'You have pushed the button this many times:',
             ),
             new Text(
               '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .display1,
             ),
           ],
         ),
