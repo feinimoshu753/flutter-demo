@@ -100,12 +100,20 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             new Container(
-                child: new Center(
-                    child: new Text('Engage')
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    new Center(
+                        child: new Text('name-')
+                    ),
+                    new Text('age',style: new TextStyle(fontSize: 22.0,color: new Color(0xFFFF9000)))
+                  ],
                 )
             ),
             new Image.network(
-                'http://imgs.nmplus.hk/wp-content/uploads/2016/04/5Pikachu.png'
+                'http://imgs.nmplus.hk/wp-content/uploads/2016/04/5Pikachu.png',
+                width: 100.0,
+                height: 100.0,
             ),
             new Text(
                 _title
