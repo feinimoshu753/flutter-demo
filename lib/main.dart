@@ -45,6 +45,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String _title = "flutter-test";
+  bool _select = false;
 
   void _incrementCounter() {
     setState(() {
@@ -106,14 +107,23 @@ class _MyHomePageState extends State<MyHomePage> {
                     new Center(
                         child: new Text('name-')
                     ),
-                    new Text('age',style: new TextStyle(fontSize: 22.0,color: new Color(0xFFFF9000)))
+                    new Text('age', style: new TextStyle(
+                        fontSize: 22.0, color: new Color(0xFFFF9000)))
                   ],
                 )
             ),
             new Image.network(
-                'http://imgs.nmplus.hk/wp-content/uploads/2016/04/5Pikachu.png',
-                width: 100.0,
-                height: 100.0,
+              'http://imgs.nmplus.hk/wp-content/uploads/2016/04/5Pikachu.png',
+              width: 100.0,
+              height: 100.0,
+            ),
+            new Switch(
+                value: _select,
+                onChanged: (bool value) {
+                  setState((){
+                    _select = !_select;
+                  });
+                },
             ),
             new Text(
                 _title
