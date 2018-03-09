@@ -46,6 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String _title = "flutter-test";
   bool _select = false;
+  double _sliderValue = 0.0;
 
   void _incrementCounter() {
     setState(() {
@@ -118,12 +119,22 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 100.0,
             ),
             new Switch(
-                value: _select,
-                onChanged: (bool value) {
-                  setState((){
-                    _select = !_select;
-                  });
-                },
+              value: _select,
+              onChanged: (bool value) {
+                setState(() {
+                  _select = !_select;
+                });
+              },
+            ),
+            new Slider(
+              value: _sliderValue,
+              onChanged: (double value) {
+                setState(() {
+                  _sliderValue = value;
+                });
+              },
+              min: 0.0,
+              max: 10.0,
             ),
             new Text(
                 _title
