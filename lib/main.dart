@@ -59,6 +59,26 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _showAlert() {
+    var a = new SimpleDialog(title: const Text('你是不是傻'),
+      children: <Widget>[
+        new SimpleDialogOption(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('是的'),
+        ),
+        new SimpleDialogOption(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('不是'),
+        ),
+      ],
+    ).build(context);
+    showDialog(context: context, child: a);
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -117,6 +137,11 @@ class _MyHomePageState extends State<MyHomePage> {
               'http://imgs.nmplus.hk/wp-content/uploads/2016/04/5Pikachu.png',
               width: 100.0,
               height: 100.0,
+            ),
+            new FlatButton(
+              child: new Text('弹出对话框'),
+              color: new Color.fromRGBO(66, 165, 12, 1.0),
+              onPressed: _showAlert,
             ),
             new Switch(
               value: _select,
