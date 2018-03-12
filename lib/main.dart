@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _showAlert() {
-    var a = new SimpleDialog(title: const Text('你是不是傻'),
+    var simpleDialog = new SimpleDialog(title: const Text('你是不是傻'),
       children: <Widget>[
         new SimpleDialogOption(
           onPressed: () {
@@ -76,7 +76,29 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ],
     ).build(context);
-    showDialog(context: context, child: a);
+    showDialog(context: context, child: simpleDialog);
+  }
+
+  void _showBottomSheet() {
+    var bottomSheet = new BottomSheet(
+        onClosing: null, builder: (BuildContext context) {
+      return new Container(
+          child: new Padding(
+              padding: const EdgeInsets.all(32.0),
+              child: new Text(
+                  'This is the modal bottom sheet. Click anywhere to dismiss.',
+                  textAlign: TextAlign.center,
+                  style: new TextStyle(
+                      color: Theme
+                          .of(context)
+                          .accentColor,
+                      fontSize: 24.0
+                  )
+              )
+          )
+      );
+    }).builder;
+    showBottomSheet(context: context, builder: bottomSheet);
   }
 
   @override
@@ -142,6 +164,11 @@ class _MyHomePageState extends State<MyHomePage> {
               child: new Text('弹出对话框'),
               color: new Color.fromRGBO(66, 165, 12, 1.0),
               onPressed: _showAlert,
+            ),
+            new FlatButton(
+                child: new Text('弹出bottomSheet'),
+                color: new Color.fromRGBO(11, 33, 136, 1.0),
+                onPressed: _showBottomSheet
             ),
             new Switch(
               value: _select,
