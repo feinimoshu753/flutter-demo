@@ -81,21 +81,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _showBottomSheet() {
     var bottomSheet = new BottomSheet(
-        onClosing: null, builder: (BuildContext context) {
-      return new Container(
-          child: new Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: new Text(
-                  'This is the modal bottom sheet. Click anywhere to dismiss.',
-                  textAlign: TextAlign.center,
-                  style: new TextStyle(
-                      color: Theme
-                          .of(context)
-                          .accentColor,
-                      fontSize: 24.0
-                  )
+        onClosing: () {
+          _showAlert();
+        }, builder: (BuildContext context) {
+      return new Scaffold(
+        body: new Center(
+          child: new Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new Text(
+                  _title
+              ),
+              new Text(
+                'terrible',
               )
-          )
+            ],
+          ),
+        )
       );
     }).builder;
     showBottomSheet(context: context, builder: bottomSheet);
